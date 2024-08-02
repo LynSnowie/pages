@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="My Music">
+        <meta name="author" content="Lyn Snow">
+        <title>About Snowi's Music</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/animate.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/magnific-popup.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/aos.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/ionicons.min.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/jquery.timepicker.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/flaticon.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/icomoon.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/style.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/home page style.css">
+
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/page_style/about_snowi.css">
+        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/page_style/about_snowi_misc.css">
+
+        <style>
+            .audiolist {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+            .audiolistitem {
+                background-color: black;
+                flex: 5;
+                height: 300px;
+                width: 400px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1 style="color: rgb(213, 255, 213);">Kitsune <strong>Hub</strong></h1>
+            <nav>
+                <ul>
+                    <li><a style="color: rgb(202, 156, 255);" href="../../">Home</a></li>
+                    <li><a style="color: rgb(67, 38, 100);">About Snowi</a></li>
+                    <li><a style="color: rgb(202, 156, 255);" href="../about_lolie/">About Lolie</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <div class="hero-wrap" style="align-items: center; width: 200%">
+                <div id="particles-js"></div>
+                
+                    <div class="col-md-6">
+                        <h1 style="text-align: center;">About Snowi - Music</h1>
+                        <h2 style="text-align: center;">Note, these may be loud so you have to adjust the audio.<br>All copyright and credits go to the original creators</h2><br><br>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-wrap" style="width: 200%; display:flex; align-items: center; text-align: center; align-self: center;">
+                <div>
+                    <div class="col-md-6 ftco-animate text-center">
+                        <!-- <audio id="audioControl" controls loop>
+                            <source id="audioSrc" type="audio/mp3" src="https://raw.githubusercontent.com/anars/blank-audio/master/1-second-and-500-milliseconds-of-silence.mp3">
+                            Your web browser sadly does not support audio elements.
+                        </audio><br><br>
+                        <select name="music" id="music">
+                            <option value="Down Under">Down Under</option>
+                        </select><br><br>
+                        <button id="submit">Submit</button>><br><br>
+                        <p id="lyrics"></p> -->
+                        <div class="audiolist" id="audiolist"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ftco-loader" class="show fullscreen">
+                <svg class="circular" width="48px" height="48px">
+                    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+                    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
+                </svg>
+            </div>
+
+            <script>
+                // New System, scrapped. lets go back to the old one!
+                // var audioControl = document.getElementById("audioControl");
+                // var lyrics = document.getElementById("lyrics");
+                // var submit = document.getElementById("submit");
+
+
+                // submit.onclick = function() {
+                //     if (document.getElementById("music").value == "Down Under") {
+                //         console.log(document.getElementById("music").value);
+                //         audioControl.src = "https://raw.githubusercontent.com/LynSnowie/misc/main/music/1. Down Under.mp3";
+                //         audioControl.volume = 0.5;
+                //         audioControl.play();
+
+                //         const filePath = `music_lyrics/${document.getElementById("music").value}.html`;
+
+                //         fetch(filePath)
+                //             .then(response => response.text())
+                //             .then(textContent => {
+                //                 lyrics.textContent = textContent;
+                //             })
+                //             .catch(error => {
+                //                 console.error('Error fetching file:', error);
+                //             });
+                //     }
+                // }
+
+                // The old system is not robust.
+                const musicFiles = [
+                    { title: "Down Under", artist: "SharaX", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/1. Down Under.mp3", },
+                    { title: "Livin' In the Sunlight, Lovin' In the Moon Light", artist: "Tiny Tim", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/2. Livin in the Sunlight Lovin in the Moon Light.mp3"},
+                    { title: "Danger Zone", artist: "Kenny Loggins", url: "free bird!", },
+                    { title: "Dream On", artist: "Aerosmith", url: "free bird!", },
+                    { title: "Free Bird", artist: "Lynyrd Shynyrd", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Get Lucky", artist: "Daft Punk", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Goofy Goober Rock", artist: "Tom Rothrock and Jim Wis", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Happy", artist: "Pharrel Williams", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Intruder Alert (Metal)", artist: "Metal Fortress", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Easy Lemon", artist: "Kevin Macleod", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Lethal Company Ice Cream Song (Metal)", artist: "Lame Genie, Lethal Company by Zeekerss", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Lethal Company Ice Cream Song (But with Lyrics)", artist: "Musical Unicorn, Lethal Company by Zeekerss", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Loonboon", artist: "Laura Shigihara", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Miss You", artist: "Oliver Tree", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Nyan cat", artist: "Chris Torres", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "I Don't Care Anymore", artist: "Phil Collins", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Pop It, Don't Drop It! (TF2 mix and original)", artist: "Lynyrd Shynyrd", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Here I Come (Metal cover)", artist: "FalKKonE, DOORS by LSplash", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Radioactive", artist: "Imagine Dragons", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Shake It Off", artist: "Taylor Swift", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "TF2 Soldier of Dance (Metal cover)", artist: "Metal Fortress", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "WAR!", artist: "DWL1993, Kriz (Orginal)", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "What is Love", artist: "Haddaway", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Spooky, Scary Skeletons", artist: "Andrew Gold", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Why Not", artist: "Ghostface Playa", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Can You Feel My Heart", artist: "Instrumental", realartist: "Bring Me The Horizon", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "The Entertainer", artist: "Scott Joplin", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Supernova", artist: "Laszlo", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Lacrimosa", artist: "Mozart", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Pixelland", artist: "Kevin Macleod", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Ripped Pants", artist: "Jeff and Barry", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "AR?A_M4TH", artist: "bxnwxghxrn", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Party Rock Anthem", artist: "LMAFO, Lauren Bennett, GoonRock", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Can You Feel My Heart", artist: "Bring Me The Horizon", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Boom Boom Boom Boom!!", artist: "Vengaboys", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Nightcore - Monster", artist: "Skillet", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Thief", artist: "Ookay", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Indigo Park Credits Song", artist: "RecD and OtterBoyVA", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Welcome to Indigo Park", artist: "RecD and Jakeneutron", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Rambley Express", artist: "RecD and Jakeneutron", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "BARNSTORMING", artist: "RecD and Jakeneutron", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Winds Of Fjords", artist: "Soft Knees", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Western Spaghetti", artist: "Eric Gemsa", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Cowboy Song", artist: "Sight of Wonders", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Graze the Roof, PvZ 2 Modern Day Mid-Wave B, Fanmade Remix", artist: "liledix4", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "Kazotsky Kick - Team Fortress 2 [NoteBlock Remix]", artist: "NoteBlock", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "All Eyes on Me", artist: "Conro (Monstercat)", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+                    { title: "8-Bit Weapon - M.U.L.E", artist: "Akita Neru", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
+		            { title: "Level Up", artist: "Raccy", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"}
+                ];
+                
+                // Get the container where the audio elements will be added
+                const container = document.getElementById("audiolist");
+
+                // Iterate through each music file and create the necessary HTML elements
+                musicFiles.forEach((file, index) => {
+                    // Create a div element to hold each audio item
+                    const div = document.createElement("div");
+                    div.classList.add("audiolistitem");
+
+                    // Create an h3 element for the music title and artist
+                    const h3 = document.createElement("h3");
+                    if (file.realartist != null) {
+                        h3.textContent = `${index + 1}. ${file.title} (${file.artist}) by ${file.realartist}`;
+                    } else {
+                        h3.textContent = `${index + 1}. ${file.title} by ${file.artist}`;
+                    }
+
+                    // Create an audio element with controls
+                    const audio = document.createElement("audio");
+                    audio.controls = true;
+                    audio.loop = true;
+                    audio.controlsList = "nodownload";
+                    audio.volume = 0.5
+
+                    // Create a source element for the audio file
+                    const source = document.createElement("source");
+                    source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. ${file.title}.mp3`;
+
+                    // Handle specific cases for special file names
+                    switch (file.title) {
+                        case "Livin' In the Sunlight, Lovin' In the Moon Light":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. Livin in the Sunlight Lovin in the Moon Light.mp3`;
+                            break;
+                        case "Intruder Alert (Metal)":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. Intruder Alert Metal.mp3`;
+                            break;
+                        case "Lethal Company Ice Cream Song (Metal)":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. Ice Cream Song Metal.mp3`;
+                            break;
+                        case "Lethal Company Ice Cream Song (But with Lyrics)":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. Ice Cream Song With Lyrics.mp3`;
+                            break;
+                        case "I Don't Care Anymore":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. I Dont Care Anymore.mp3`;
+                            break;
+                        case "Pop It, Don't Drop It! (TF2 mix and original)":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. Pop it Dont Drop it!.mp3`;
+                            break;
+                        case "Here I Come (Metal cover)":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. Here I Come.mp3`;
+                            break;
+                        case "TF2 Soldier of Dance (Metal cover)":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. Soldier of Dance Metal.mp3`;
+                            break;
+                        case "AR?A_M4TH":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. CARA_M4TH.mp3`;
+                            break;
+                        case "Nightcore - Monster":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. ${file.title} (${file.artist}).mp3`;
+                            break;
+                        case "Thief":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. ${file.artist} - ${file.title}.mp3`;
+                            break;
+                        case "8-Bit Weapon - M.U.L.E":
+                            source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. ROBLOX Music - 8-Bit Weapon - MULE (Bitblaster Mix).mp3`;
+                            break;
+                        case "Level Up":
+                            source.src = `https://github.com/LynSnowie/misc/raw/main/music/other/Raccy ES_Level Up.mp3`;
+                            break;
+                        default:
+                            break;
+                    }
+
+                    // Set the type and title for the source element
+                    source.type = "audio/mp3";
+                    source.title = "place";
+
+                    // Append the source to the audio element
+                    audio.appendChild(source);
+
+                    // Append the h3 and audio elements to the div
+                    div.appendChild(h3);
+                    div.appendChild(audio);
+
+                    // Handle special case for "Pop It, Don't Drop It! (TF2 mix and original)"
+                    if (file.title === "Pop It, Don't Drop It! (TF2 mix and original)") {
+                        h3.textContent = `${index + 1}. ${file.title}`;
+
+                        const audio1 = document.createElement("audio");
+                        audio1.controls = true;
+                        audio1.loop = true;
+                        audio1.controlsList = "nodownload";
+
+                        const source1 = document.createElement("source");
+                        source1.src = "https://raw.githubusercontent.com/LynSnowie/misc/main/music/other/Pop It, Dont Drop It (og).mp3";
+                        source1.type = "audio/mp3";
+                        source1.title = "place";
+
+                        audio1.appendChild(source1);
+                        div.appendChild(audio1);
+                    }
+
+                    // Append the div to the container
+                    container.appendChild(div);
+                });
+            </script>
+
+            <script src="../../js/jquery.min.js"></script>
+            <script src="../../js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../../js/popper.min.js"></script>
+            <script src="../../js/bootstrap.min.js"></script>
+            <script src="../../js/jquery.easing.1.3.js"></script>
+            <script src="../../js/jquery.waypoints.min.js"></script>
+            <script src="../../js/jquery.stellar.min.js"></script>
+            <script src="../../js/owl.carousel.min.js"></script>
+            <script src="../../js/jquery.magnific-popup.min.js"></script>
+            <script src="../../js/aos.js"></script>
+            <script src="../../js/jquery.animateNumber.min.js"></script>
+            <script src="../../js/bootstrap-datepicker.js"></script>
+            <script src="../../js/jquery.timepicker.min.js"></script>
+            <script src="../../js/particles.min.js"></script>
+            <script src="../../js/particle.js"></script>
+            <script src="../../js/scrollax.min.js"></script>
+            <script src="../../js/google-map.js"></script>
+            <script src="../../js/main.js"></script>
+            <script src="../../js/pages/snowi.js"></script>
+			<script src="../../js/oneko.js"></script>
+            <!--  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, libero vel aliquet tincidunt, justo nunc tincidunt nisl, vel tincidunt purus lectus nec justo.</p> -->
+        </div>
+        <footer>
+            <h1 style="color: rgb(213, 255, 213);">Kitsune <strong>Hub</strong></h1>
+            <nav>
+                <ul>
+                    <li><a style="color: rgb(202, 156, 255);" href="../../">Home</a></li>
+                    <li><a style="color: rgb(67, 38, 100);">About Snowi</a></li>
+                    <li><a style="color: rgb(202, 156, 255);" href="../about_lolie/">About Lolie</a></li>
+                </ul>
+            </nav>
+        </footor>
+    </body>
+</html>
