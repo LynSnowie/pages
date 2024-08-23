@@ -270,5 +270,61 @@
 
 		<script src="https://lynsnowie.github.io/js/pages/snowi.js"></script>
 		<script src="https://lynsnowie.github.io/js/pages/home.js" defer></script>
+
+		<script>
+	                const bgMusic = ["Miss You", "Somebody That I Used To Know", "Bodies", "Radioactive", "Free Bird", "Ice Cream Song Lyrics", "I Don't Care Anymore", "Ripped Pants", "Monster", ];
+	                const chosenMusic = bgMusic[Math.floor(Math.random() * bgMusic.length)];
+	                const audio = new Audio(`../../misc/snow/${chosenMusic}.mp3`); // const audio = new Audio(`../../misc/lolie/${chosenMusic}.mp3`);
+	
+	                audio.loop = true;
+	
+	                function pageLoad() {
+	                    if (localStorage.getItem("snowy bg") == undefined || localStorage.getItem("snowy bg") == null || localStorage.getItem("snowy bg") == "true") {
+	                        console.log(localStorage.getItem("snowy bg"));
+	                        localStorage.setItem("snowy bg", "false");
+	                    }
+	
+	                    if (localStorage.getItem("snowy bg") == "false" || !audio.paused) {
+	                        localStorage.setItem("snowy bg", "true");
+	                        audio.play();
+	                    }
+	                }
+	
+	                window.addEventListener('visibilitychange', () => {
+	                    if (document.visibilityState === 'visible') { // Tab is active
+	                        if (localStorage.getItem("snowy bg") == "false" || !audio.paused) {
+	                            localStorage.setItem("snowy bg", "true");
+	                            audio.play();
+	                        }
+	                    } else { // Tab is not active
+	                        audio.pause();
+	                        localStorage.setItem("snowy bg", "false")
+	                    }
+	                });
+	
+	                if (chosenMusic == "Miss You") {
+	                    audio.volume = 0.2;
+	                } else if (chosenMusic == "Somebody That I Used To Know") {
+	                    audio.volume = 0.2;
+	                } else if (chosenMusic == "Bodies") {
+	                    audio.volume = 0.2;
+	                } else if (chosenMusic == "Radioactive") {
+	                    audio.volume = 0.2;
+	                } else if (chosenMusic == "Free Bird") {
+	                    audio.volume = 0.2;
+	                } else if (chosenMusic == "Ice Cream Song Lyrics") {
+	                    audio.volume = 0.2;
+	                } else if (chosenMusic == "I Don't Care Anymore") {
+	                    audio.volume = 0.2;
+	                } else if (chosenMusic == "Ripped Pants") {
+	                    audio.volume = 0.2;
+	                } else if (chosenMusic == "Monster") {
+	                    audio.volume = 0.2;
+	                // } else {
+	                //     audio.volume = 0.5;
+	                }
+	
+	                window.onload = pageLoad;
+	        </script>
 	</body>
 </html>
