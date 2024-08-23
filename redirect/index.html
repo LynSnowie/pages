@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Redirectation Page">
         <meta name="author" content="Lyn Snow">
-        <title>Important</title>
+		<title>Important</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="language" content="English">
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
@@ -20,87 +20,119 @@
         <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/jquery.timepicker.css">
         <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/flaticon.css">
         <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/icomoon.css">
-        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/style.css">
-        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/home page style.css">
-    </head>
-    <body style="text-align: center;">
-        <div style="align-content: center;" class="container">
-            <h1>Snowi's Github Redirectation Page</h1>
-            <div class="hero-wrap">
-                <div id="particles-js"></div>
-                <div class="container">
-                    <div class="row no-gutters align-items-center justify-content-center">
-                        <div class="col-md-6 ftco-animate text-center">
-                            <h1 style="font-size: 30px; color: white;"class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">You are going to a possibly an<strong> unsafe site.</strong> </h1><br>
-                            <h1 style="font-size: 30px; color: white;"class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">To confirm you want to go, click/tap the "Yes" button.</h1><br><br>
-                            <h1 style="font-size: 30px; color: white;"class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We recommend you use <a id="uBlock"> uBlock Origin</a> when visiting the site</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="ftco-loader" class="show fullscreen">
-                <svg class="circular" width="48px" height="48px">
-                    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-                    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
-                </svg>
-            </div>
-            <div>
-                <button id="yes" style="height: 60px; width: 150px; color: white; background-color: darkred; border-radius: 20px; margin-right: 100px; position: relative; z-index: 10000">Yes</button>
-                <button id="no" style="height: 60px; width: 150px; border-radius: 20px; position: relative; z-index: 10000">No</button>
-            </div>
+		<link rel="stylesheet" href="../../styles.css">
 
-            <script>
-                window.onload = function() {
-                    if (localStorage.getItem("Snowi Redirecting") == "true")
-                    {
-                        console.log("You are being redirected to this page because of an unsafe site most likly.");
+		<style>
+			body {
+				margin: 0;
+				height: 100vh;
+				background: linear-gradient(135deg, #00FF7F, #8A2BE2, #FFA500);
+				background-size: 300% 300%;
+				animation: gradientAnimation 10s ease infinite;
+			}
 
-                        document.getElementById("yes").onclick = function() {
-                            
-                            if (localStorage.getItem("Snowi Redirecting")) {
-                                window.location = localStorage.getItem("Snowi Redirect Page")
-                                localStorage.removeItem("Snowi Redirect Page")
-                            }
+			@keyframes gradientAnimation {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
 
-                            localStorage.removeItem("Snowi Redirecting")
-                            localStorage.removeItem("Snowi Prev Page")
-                        }
+		</style>
+	</head>
+	<body>
+		<!-- <header>
+			<div class="header-container">
+				<h1><span class="highlight">Kitsune</span> Hub</h1>
+				<nav>
+					<ul>
+						<ul id="header-nav"></ul>
+					</ul>
+				</nav>
+			</div>
+		</header> -->
 
-                        document.getElementById("no").onclick = function() {
-                            localStorage.removeItem("Snowi Redirecting")
-                            localStorage.removeItem("Snowi Redirect Page")
+		<main>
+			<section class="intro">
+				<h2>Snowy's Github Home Page</h2>
+				<p>Meow <span class="highlight">meow.</span></p>
+				<h1 style="font-size: 30px; color: white;"class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">You are going to a possibly an<strong> unsafe site.</strong> </h1><br>
+				<h1 style="font-size: 30px; color: white;"class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">To confirm you want to go, click/tap the "Yes" button.</h1><br><br>
+				<h1 style="font-size: 30px; color: white;"class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We recommend you use <a id="uBlock"> uBlock Origin</a> when visiting the site</h1>
+			
+				
+				<div style="padding-top: 100px;">
+					<button id="yes" style="height: 60px; width: 150px; color: white; background-color: darkred; border-radius: 20px; margin-right: 100px; position: relative; z-index: 10000">Yes</button>
+					<button id="no" style="height: 60px; width: 150px; border-radius: 20px; position: relative; z-index: 10000">No</button>
+				</div>
+			</section>
+		</main>
+		
+		<!-- <footer>
+			<div class="footer-container">
+				<h1><span class="highlight">Kitsune</span> Hub</h1>
+				<nav>
+					<ul>
+						<ul id="footer-nav"></ul>
+					</ul>
+				</nav>
+			</div>
+		</footer> -->
+		<script src="https://lynsnowie.github.io/js/jquery.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery-migrate-3.0.1.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/popper.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/bootstrap.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.easing.1.3.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.waypoints.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.stellar.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/owl.carousel.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.magnific-popup.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/aos.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.animateNumber.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/bootstrap-datepicker.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.timepicker.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/scrollax.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/main.js"></script>
 
-                            if (localStorage.getItem("Snowi Prev Page") == "About Snowi") {
-                                window.location = "../../about_snowi"
-                            } else {
-                                localStorage.removeItem("Snowi Prev Page")
-                            }
-                        }
-                    } else {
-                        window.location = "../../"
-                    }
-                }
-            </script>
+		<script src="https://lynsnowie.github.io/js/pages/home.js" defer></script>
 
-            <script src="../../js/jquery.min.js"></script>
-            <script src="../../js/jquery-migrate-3.0.1.min.js"></script>
-            <script src="../../js/popper.min.js"></script>
-            <script src="../../js/bootstrap.min.js"></script>
-            <script src="../../js/jquery.easing.1.3.js"></script>
-            <script src="../../js/jquery.waypoints.min.js"></script>
-            <script src="../../js/jquery.stellar.min.js"></script>
-            <script src="../../js/owl.carousel.min.js"></script>
-            <script src="../../js/jquery.magnific-popup.min.js"></script>
-            <script src="../../js/aos.js"></script>
-            <script src="../../js/jquery.animateNumber.min.js"></script>
-            <script src="../../js/bootstrap-datepicker.js"></script>
-            <script src="../../js/jquery.timepicker.min.js"></script>
-            <script src="../../js/particles.min.js"></script>
-            <script src="../../js/particle.js"></script>
-            <script src="../../js/scrollax.min.js"></script>
-            <script src="../../js/google-map.js"></script>
-            <script src="../../js/main.js"></script>
-            <!--  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, libero vel aliquet tincidunt, justo nunc tincidunt nisl, vel tincidunt purus lectus nec justo.</p> -->
-        </div>
-    </body>
+		
+		<script>
+			window.onload = function() {
+				if (localStorage.getItem("Snowi Redirecting") == "true")
+				{
+					console.log("You are being redirected to this page because of an unsafe site most likly.");
+
+					document.getElementById("yes").onclick = function() {
+						
+						if (localStorage.getItem("Snowi Redirecting")) {
+							window.location = localStorage.getItem("Snowi Redirect Page")
+							localStorage.removeItem("Snowi Redirect Page")
+						}
+
+						localStorage.removeItem("Snowi Redirecting")
+						localStorage.removeItem("Snowi Prev Page")
+					}
+
+					document.getElementById("no").onclick = function() {
+						localStorage.removeItem("Snowi Redirecting")
+						localStorage.removeItem("Snowi Redirect Page")
+
+						if (localStorage.getItem("Snowi Prev Page") == "About Snowi") {
+							window.location = "../../about_snowy"
+						} else {
+							localStorage.removeItem("Snowi Prev Page")
+						}
+					}
+				} else {
+					window.location = "../../"
+				}
+			}
+		</script>
+	</body>
 </html>
