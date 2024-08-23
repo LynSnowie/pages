@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="My Music">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="About Snowy, Music">
         <meta name="author" content="Lyn Snow">
-        <title>About Snowi's Music</title>
+		<title>Snowy's Site - About Snowy, Music</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="language" content="English">
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
@@ -20,100 +20,101 @@
         <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/jquery.timepicker.css">
         <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/flaticon.css">
         <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/icomoon.css">
-        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/style.css">
-        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/home page style.css">
+		<link rel="stylesheet" href="../../styles.css">
 
-        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/page_style/about_snowi.css">
-        <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/page_style/about_snowi_misc.css">
+		<style>
+			body {
+				margin: 0;
+				height: 100%;
+				background: linear-gradient(135deg, #00FF7F, #8A2BE2, #FFA500);
+				background-size: 300% 300%;
+				animation: gradientAnimation 10s ease infinite;
+			}
 
-        <style>
             .audiolist {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 2rem;
             }
+			.audiolist h3 {
+				color:white
+			}
             .audiolistitem {
-                background-color: black;
+                background-color: #2e104b;
+				border-radius: 20px;
+				border: #00FF7F;
+  				border-style: solid;
+				border-color: #00FF7F;
                 flex: 5;
                 height: 300px;
                 width: 400px;
             }
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1 style="color: rgb(213, 255, 213);">Kitsune <strong>Hub</strong></h1>
-            <nav>
-                <ul>
-                    <li><a style="color: rgb(202, 156, 255);" href="../../">Home</a></li>
-                    <li><a style="color: rgb(67, 38, 100);">About Snowi</a></li>
-                    <li><a style="color: rgb(202, 156, 255);" href="../about_lolie/">About Lolie</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="container">
-            <div class="hero-wrap" style="align-items: center; width: 200%">
-                <div id="particles-js"></div>
-                
-                    <div class="col-md-6">
-                        <h1 style="text-align: center;">About Snowi - Music</h1>
-                        <h2 style="text-align: center;">Note, these may be loud so you have to adjust the audio.<br>All copyright and credits go to the original creators</h2><br><br>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-wrap" style="width: 200%; display:flex; align-items: center; text-align: center; align-self: center;">
-                <div>
-                    <div class="col-md-6 ftco-animate text-center">
-                        <!-- <audio id="audioControl" controls loop>
-                            <source id="audioSrc" type="audio/mp3" src="https://raw.githubusercontent.com/anars/blank-audio/master/1-second-and-500-milliseconds-of-silence.mp3">
-                            Your web browser sadly does not support audio elements.
-                        </audio><br><br>
-                        <select name="music" id="music">
-                            <option value="Down Under">Down Under</option>
-                        </select><br><br>
-                        <button id="submit">Submit</button>><br><br>
-                        <p id="lyrics"></p> -->
-                        <div class="audiolist" id="audiolist"></div>
-                    </div>
-                </div>
-            </div>
 
-            <div id="ftco-loader" class="show fullscreen">
-                <svg class="circular" width="48px" height="48px">
-                    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-                    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" />
-                </svg>
-            </div>
+			audio {color: black;}
 
-            <script>
-                // New System, scrapped. lets go back to the old one!
-                // var audioControl = document.getElementById("audioControl");
-                // var lyrics = document.getElementById("lyrics");
-                // var submit = document.getElementById("submit");
+			@keyframes gradientAnimation {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="header-container">
+				<h1><span class="highlight">Kitsune</span> Hub</h1>
+				<nav>
+					<ul>
+						<ul id="header-nav"></ul>
+					</ul>
+				</nav>
+			</div>
+		</header>
 
+		<main>
+			<section class="intro">
+				<h2>Snowy's Github Home Page</h2>
+				<p>Meow <span class="highlight">meow.</span></p>
+				<div class="audiolist" id="audiolist"></div>
+			</section>
+		</main>
+		
+		<footer>
+			<div class="footer-container">
+				<h1><span class="highlight">Kitsune</span> Hub</h1>
+				<nav>
+					<ul>
+						<ul id="footer-nav"></ul>
+					</ul>
+				</nav>
+			</div>
+		</footer>
+		<script src="https://lynsnowie.github.io/js/jquery.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery-migrate-3.0.1.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/popper.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/bootstrap.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.easing.1.3.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.waypoints.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.stellar.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/owl.carousel.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.magnific-popup.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/aos.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.animateNumber.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/bootstrap-datepicker.js"></script>
+		<script src="https://lynsnowie.github.io/js/jquery.timepicker.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/scrollax.min.js"></script>
+		<script src="https://lynsnowie.github.io/js/main.js"></script>
 
-                // submit.onclick = function() {
-                //     if (document.getElementById("music").value == "Down Under") {
-                //         console.log(document.getElementById("music").value);
-                //         audioControl.src = "https://raw.githubusercontent.com/LynSnowie/misc/main/music/1. Down Under.mp3";
-                //         audioControl.volume = 0.5;
-                //         audioControl.play();
+		<script src="https://lynsnowie.github.io/js/pages/home.js" defer></script>
 
-                //         const filePath = `music_lyrics/${document.getElementById("music").value}.html`;
-
-                //         fetch(filePath)
-                //             .then(response => response.text())
-                //             .then(textContent => {
-                //                 lyrics.textContent = textContent;
-                //             })
-                //             .catch(error => {
-                //                 console.error('Error fetching file:', error);
-                //             });
-                //     }
-                // }
-
-                // The old system is not robust.
-                const musicFiles = [
+		<script>
+			const musicFiles = [
                     { title: "Down Under", artist: "SharaX", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/1. Down Under.mp3", },
                     { title: "Livin' In the Sunlight, Lovin' In the Moon Light", artist: "Tiny Tim", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/2. Livin in the Sunlight Lovin in the Moon Light.mp3"},
                     { title: "Danger Zone", artist: "Kenny Loggins", url: "free bird!", },
@@ -162,7 +163,16 @@
                     { title: "Kazotsky Kick - Team Fortress 2 [NoteBlock Remix]", artist: "NoteBlock", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
                     { title: "All Eyes on Me", artist: "Conro (Monstercat)", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
                     { title: "8-Bit Weapon - M.U.L.E", artist: "Akita Neru", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3", },
-		            { title: "Level Up", artist: "Raccy", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"}
+		            { title: "Level Up", artist: "Raccy", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"},
+                    { title: "Moon Theme Remix", artist: "Plasma3 Music", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"},
+                    { title: "our hearts collide", artist: "iamsleepless", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"},
+                    { title: "Cadaver", artist: "Bonnie37 Electro", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"},
+                    { title: "Relax Sound", artist: "Bonnie37 Electro", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"},
+                    { title: "Sleep Sea", artist: "Bonnie37 Electro", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"},
+                    { title: "Magic Fortuna", artist: "Bonnie37 Electro", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"},
+                    { title: "Protogen Evolution", artist: "Bonnie37 Electro", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"},
+                    { title: "turn back", artist: "wiv", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"},
+                    { title: "sxrry", artist: "wiv", url: "https://raw.githubusercontent.com/LynSnowie/misc/main/music/5. Free Bird.mp3"}
                 ];
                 
                 // Get the container where the audio elements will be added
@@ -177,9 +187,11 @@
                     // Create an h3 element for the music title and artist
                     const h3 = document.createElement("h3");
                     if (file.realartist != null) {
-                        h3.textContent = `${index + 1}. ${file.title} (${file.artist}) by ${file.realartist}`;
+                        h3.textContent = `
+							${index + 1}. ${file.title} (${file.artist}) \nby ${file.realartist}
+						`;
                     } else {
-                        h3.textContent = `${index + 1}. ${file.title} by ${file.artist}`;
+                        h3.textContent = `${index + 1}. ${file.title} \nby ${file.artist}`;
                     }
 
                     // Create an audio element with controls
@@ -193,6 +205,7 @@
                     const source = document.createElement("source");
                     source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. ${file.title}.mp3`;
 
+                    console.log(file.title);
                     // Handle specific cases for special file names
                     switch (file.title) {
                         case "Livin' In the Sunlight, Lovin' In the Moon Light":
@@ -232,7 +245,34 @@
                             source.src = `https://raw.githubusercontent.com/LynSnowie/misc/main/music/${index + 1}. ROBLOX Music - 8-Bit Weapon - MULE (Bitblaster Mix).mp3`;
                             break;
                         case "Level Up":
-                            source.src = `https://github.com/LynSnowie/misc/raw/main/music/other/Raccy ES_Level Up.mp3`;
+                            source.src = `https://lynsnowie.github.io/misc/music/other/Raccy ES_Level Up.mp3`;
+                            break;
+                        case "Moon Theme Remix":
+                            source.src = `https://lynsnowie.github.io/misc/glowy/Moon Theme Remix.mp3`;
+                            break;
+                        case "our hearts collide":
+                            source.src = `https://lynsnowie.github.io/misc/glowy/our hearts collide.mp3`;
+                            break;
+                        case "Cadaver":
+                            source.src = `https://lynsnowie.github.io/misc/glowy/Cadaver.mp3`;
+                            break;
+                        case "Relax Sound":
+                            source.src = `https://lynsnowie.github.io/misc/glowy/Relax Sound.mp3`;
+                            break;
+                        case "Sleep Sea":
+                            source.src = `https://lynsnowie.github.io/misc/glowy/Sleep Sea.mp3`;
+                            break;
+                        // case "Magic Fortuna":
+                        //     source.src = `https://github.com/LynSnowie/misc/raw/main/misc/glowy/Magic Fortuna.wav`;
+                        //     break;
+                        case "Protogen Evolution":
+                            source.src = `https://lynsnowie.github.io/misc/glowy/Protogen Evolution.mp3`;
+                            break;
+                        case "turn back":
+                            source.src = `https://lynsnowie.github.io/misc/music/wiv/${file.title}.mp3`;
+                            break;
+                        case "sxrry":
+                            source.src = `https://lynsnowie.github.io/misc/music/wiv/${file.title}.mp3`;
                             break;
                         default:
                             break;
@@ -270,39 +310,6 @@
                     // Append the div to the container
                     container.appendChild(div);
                 });
-            </script>
-
-            <script src="../../js/jquery.min.js"></script>
-            <script src="../../js/jquery-migrate-3.0.1.min.js"></script>
-            <script src="../../js/popper.min.js"></script>
-            <script src="../../js/bootstrap.min.js"></script>
-            <script src="../../js/jquery.easing.1.3.js"></script>
-            <script src="../../js/jquery.waypoints.min.js"></script>
-            <script src="../../js/jquery.stellar.min.js"></script>
-            <script src="../../js/owl.carousel.min.js"></script>
-            <script src="../../js/jquery.magnific-popup.min.js"></script>
-            <script src="../../js/aos.js"></script>
-            <script src="../../js/jquery.animateNumber.min.js"></script>
-            <script src="../../js/bootstrap-datepicker.js"></script>
-            <script src="../../js/jquery.timepicker.min.js"></script>
-            <script src="../../js/particles.min.js"></script>
-            <script src="../../js/particle.js"></script>
-            <script src="../../js/scrollax.min.js"></script>
-            <script src="../../js/google-map.js"></script>
-            <script src="../../js/main.js"></script>
-            <script src="../../js/pages/snowi.js"></script>
-			<script src="../../js/oneko.js"></script>
-            <!--  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, libero vel aliquet tincidunt, justo nunc tincidunt nisl, vel tincidunt purus lectus nec justo.</p> -->
-        </div>
-        <footer>
-            <h1 style="color: rgb(213, 255, 213);">Kitsune <strong>Hub</strong></h1>
-            <nav>
-                <ul>
-                    <li><a style="color: rgb(202, 156, 255);" href="../../">Home</a></li>
-                    <li><a style="color: rgb(67, 38, 100);">About Snowi</a></li>
-                    <li><a style="color: rgb(202, 156, 255);" href="../about_lolie/">About Lolie</a></li>
-                </ul>
-            </nav>
-        </footor>
-    </body>
+		</script>
+	</body>
 </html>
