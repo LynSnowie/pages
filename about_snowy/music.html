@@ -82,7 +82,7 @@
 				background-color: #333;
 				visibility: shown;
 				height: 80px;
-				width: 380px;
+				width: 400px;
 				border-bottom-left-radius: 20px;
 				border-bottom-right-radius: 20px;
 				margin: 0 auto; /* Center horizontally */
@@ -97,7 +97,7 @@
 				background-color: #333;
 				visibility: shown;
 				height: 80px;
-				width: 380px;
+				width: 400px;
 				border-top-left-radius: 20px;
 				border-top-right-radius: 20px;
 				margin: 0 auto; /* Center horizontally */
@@ -127,7 +127,8 @@
 		<main>
             <section class="intro1">
                 <!-- Currently playing section centered -->
-                <div class="currently-playing">
+                <div class="currently-playing" id="currently-playing" >
+					<h4 id="playing-top" style="color: white;">Playing: Nothing</h4>
                     <canvas id="visualizer"></canvas>
                 </div>
             </section>
@@ -139,8 +140,9 @@
 			</section>
             <section class="intro1">
                 <!-- Currently playing section centered -->
-                <div class="currently-playing-bottom">
+                <div class="currently-playing-bottom" id="currently-playing-bottom" >
                     <canvas id="visualizerbottom"></canvas>
+					<h4 id="playing-bottom" style="color: white;">Playing: Nothing</h4>
                 </div>
             </section>
 		</main>
@@ -313,12 +315,14 @@
                 let currentSong = "";
 
                 audio.id = file.title
+                audio.artist = file.artist
 
                 audio.addEventListener('play', () => {
                     musicFiles.forEach((otherAudio, i) => {
                         if (otherAudio.title == file.title) {
                             // console.log(audio);
-                            console.log(file);
+                            document.getElementById("playing-top").innerText = `Playing: ${track} by ${otherAudio.artist}`;
+                            document.getElementById("playing-bottom").innerText = `Playing: ${track} by ${otherAudio.artist}`;
                             track = file.title;
                             currentSong = file.title;
                             // otherAudio.play();
@@ -326,6 +330,8 @@
                             // console.log(otherAudio);
                             // console.log(otherAudio.element);
                             otherAudio.element.pause();
+                            document.getElementById("playing-top").innerText = `Playing: Nothing`;
+                            document.getElementById("playing-bottom").innerText = `Playing: Nothing`;
                             // console.log(`Pause ${otherAudio.title}`);
                         }
                     });
@@ -376,6 +382,8 @@
                         }
                     });
                     if (allPaused) {
+                        document.getElementById("playing-top").innerText = `Playing: Nothing`;
+                        document.getElementById("playing-bottom").innerText = `Playing: Nothing`;
                         track = "";
                         currentSong = "";
                     }
