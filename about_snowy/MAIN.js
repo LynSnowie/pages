@@ -153,7 +153,7 @@ bgMusic.forEach((file, index) => {
                 audio.volume = 0.3;
                 audio.src = "../../misc/snow/music/main/25. Why Not.mp3";
                 break;
-            case "Pary Rock Athem":
+            case "Party Rock Anthem":
                 audio.volume = 0.5;
                 audio.src = "../../misc/snow/music/main/33. Party Rock Anthem.mp3";
                 break;
