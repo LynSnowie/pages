@@ -121,4 +121,6 @@ if (chosenMusic == "Miss You") {
 // 	audio.volume = 0.5;
 }
 
+audio.play();
+
 window.onload = pageLoad;
