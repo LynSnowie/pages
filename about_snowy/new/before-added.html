@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="About Snowy, Music">
+        <meta name="author" content="Lyn Snow">
+		<title>Snowy's Site - About Snowy, Music</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
+		<link rel="stylesheet" href="/styles.css">
+
+		<style>
+			body {
+				margin: 0;
+				height: 100%;
+				background: linear-gradient(135deg, #00FF7F, #8A2BE2, #FFA500);
+				background-size: 300% 300%;
+				animation: gradientAnimation 10s ease infinite;
+			}
+
+            .audiolist {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+			.audiolist h3 {
+				color:white
+			}
+            .audiolistitem {
+                background-color: #2e104b;
+				border-radius: 20px;
+				border: #00FF7F;
+  				border-style: solid;
+				border-color: #00FF7F;
+                flex: 5;
+                height: 300px;
+                width: 400px;
+            }
+
+			audio {color: black;}
+
+			@keyframes gradientAnimation {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+			
+
+			/* Header container styling */
+			.header-container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 20px;
+			}
+
+			/* Currently-playing section */
+			.currently-playing {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background-color: #333;
+				visibility: shown;
+				height: 80px;
+				width: 480px;
+				border-bottom-left-radius: 20px;
+				border-bottom-right-radius: 20px;
+				margin: 0 auto; /* Center horizontally */
+				top: 0px; /* Space it under the header */
+			}
+
+			.currently-playing-bottom {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background-color: #333;
+				visibility: shown;
+				height: 80px;
+				width: 480px;
+				border-top-left-radius: 20px;
+				border-top-right-radius: 20px;
+				margin: 0 auto; /* Center horizontally */
+				top: 0px; /* Space it under the header */
+			}
+
+			/* Canvas positioning */
+			canvas {
+				width: 300px;
+				height: 50px;
+				padding-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="header-container">
+				<h1><span class="highlight">Kitsune</span> Hub</h1>
+				<nav>
+					<ul>
+						<ul id="header-nav"></ul>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+            <section class="intro1">
+                <!-- Currently playing section centered -->
+                <div class="currently-playing" id="currently-playing" >
+					<h4 id="playing-top" style="color: white;">Playing: Nothing</h4>
+                    <canvas id="visualizer"></canvas>
+                </div>
+            </section>
+			<section class="intro">
+				<h2 style="padding-bottom: 50px; color: black">Snowy's Music Playlist</h2>
+                <h1 style="font-size: 50px; color: black; padding-bottom: 100px;">TW: Some of the songs are loud. Lower the volume of them before listening to them to not blow out your eardrums.</h1>
+				<!-- <p>Meow <span class="highlight">meow.</span></p> -->
+				<div class="audiolist" id="audiolist"></div>
+			</section>
+            <section class="intro1">
+                <!-- Currently playing section centered -->
+                <div class="currently-playing-bottom" id="currently-playing-bottom" >
+                    <canvas id="visualizerbottom"></canvas>
+					<h4 id="playing-bottom" style="color: white;">Playing: Nothing</h4>
+                </div>
+            </section>
+		</main>
+		
+		<footer>
+			<div class="footer-container">
+				<h1><span class="highlight">Kitsune</span> Hub</h1>
+				<nav>
+					<ul>
+						<ul id="footer-nav"></ul>
+					</ul>
+				</nav>
+			</div>
+		</footer>
+		<script src="/js/pages/home.js"></script>
+
+        <script>
+			const musicFiles = [
+                { title: "Down Under", artist: "SharaX", url: "about:blank", },
+                { title: "Livin' In the Sunlight, Lovin' In the Moon Light", artist: "Tiny Tim", url: "about:blank"},
+                { title: "Danger Zone", artist: "Kenny Loggins", url: "free bird!", },
+                { title: "Dream On", artist: "Aerosmith", url: "free bird!", },
+                { title: "Free Bird", artist: "Lynyrd Shynyrd", url: "about:blank", },
+                { title: "Get Lucky", artist: "Daft Punk", url: "about:blank", },
+                { title: "Goofy Goober Rock", artist: "Tom Rothrock and Jim Wis", url: "about:blank", },
+                { title: "Happy", artist: "Pharrel Williams", url: "about:blank", },
+                { title: "Intruder Alert (Metal)", artist: "Metal Fortress", url: "about:blank", },
+                { title: "Easy Lemon", artist: "Kevin Macleod", url: "about:blank", },
+                { title: "Lethal Company Ice Cream Song (Metal)", artist: "Lame Genie, Lethal Company by Zeekerss", url: "about:blank", },
+                { title: "Lethal Company Ice Cream Song (With Lyrics)", artist: "Musical Unicorn, Lethal Company by Zeekerss", url: "about:blank", },
+                { title: "Loonboon", artist: "Laura Shigihara", url: "about:blank", },
+                { title: "Miss You", artist: "Oliver Tree", url: "about:blank", },
+                { title: "Nyan cat", artist: "Chris Torres", url: "about:blank", },
+                { title: "I Don't Care Anymore", artist: "Phil Collins", url: "about:blank", },
+                { title: "Pop It, Don't Drop It! (TF2 mix)", artist: "Unknown", url: "about:blank", },
+                { title: "Here I Come (Metal cover)", artist: "FalKKonE, DOORS by LSplash", url: "about:blank", },
+                { title: "Radioactive", artist: "Imagine Dragons", url: "about:blank", },
+                { title: "Shake It Off", artist: "Taylor Swift", url: "about:blank", },
+                { title: "TF2 Soldier of Dance (Metal cover)", artist: "Metal Fortress", url: "about:blank", },
+                { title: "WAR!", artist: "DWL1993, Kriz (Orginal)", url: "about:blank", },
+                { title: "What is Love", artist: "Haddaway", url: "about:blank", },
+                { title: "Spooky, Scary Skeletons", artist: "Andrew Gold", url: "about:blank", },
+                { title: "Why Not", artist: "Ghostface Playa", url: "about:blank", },
+                { title: "Can You Feel My Heart", artist: "Instrumental", realartist: "Bring Me The Horizon", url: "about:blank", },
+                { title: "The Entertainer", artist: "Scott Joplin", url: "about:blank", },
+                { title: "Supernova", artist: "Laszlo", url: "about:blank", },
+                { title: "Lacrimosa", artist: "Mozart", url: "about:blank", },
+                { title: "Pixelland", artist: "Kevin Macleod", url: "about:blank", },
+                { title: "Ripped Pants", artist: "Jeff and Barry", url: "about:blank", },
+                { title: "AR?A_M4TH", artist: "bxnwxghxrn", url: "about:blank", },
+                { title: "Party Rock Anthem", artist: "LMAFO, Lauren Bennett, GoonRock", url: "about:blank", },
+                { title: "Can You Feel My Heart", artist: "Bring Me The Horizon", url: "about:blank", },
+                { title: "Boom Boom Boom Boom!!", artist: "Vengaboys", url: "about:blank", },
+                { title: "Nightcore - Monster", artist: "Skillet", url: "about:blank", },
+                { title: "Thief", artist: "Ookay", url: "about:blank", },
+                { title: "Indigo Park Credits Song", artist: "RecD and OtterBoyVA", url: "about:blank", },
+                { title: "Welcome to Indigo Park", artist: "RecD and Jakeneutron", url: "about:blank", },
+                { title: "Rambley Express", artist: "RecD and Jakeneutron", url: "about:blank", },
+                { title: "BARNSTORMING", artist: "RecD and Jakeneutron", url: "about:blank", },
+                { title: "Winds Of Fjords", artist: "Soft Knees", url: "about:blank", },
+                { title: "Western Spaghetti", artist: "Eric Gemsa", url: "about:blank", },
+                { title: "Cowboy Song", artist: "Sight of Wonders", url: "about:blank", },
+                { title: "Graze the Roof, PvZ 2 Modern Day Mid-Wave B, Fanmade Remix", artist: "liledix4", url: "about:blank", },
+                { title: "Kazotsky Kick - Team Fortress 2 [NoteBlock Remix]", artist: "NoteBlock", url: "about:blank", },
+                { title: "All Eyes on Me", artist: "Conro (Monstercat)", url: "about:blank", },
+                { title: "8-Bit Weapon - M.U.L.E", artist: "Akita Neru", url: "about:blank", },
+            ];
+
+            // Get the container element where audio elements will be added
+            const container = document.getElementById("audiolist");
+
+            // Loop through each music file and create HTML elements for them
+            musicFiles.forEach((file, index) => {
+                const div = document.createElement("div");  // Div to hold each audio item
+                div.classList.add("audiolistitem");
+                const h3 = document.createElement("h3");  // Title and artist text
+                h3.textContent = `${index + 1}. ${file.title} \nby ${file.artist}`;
+                if (file.realartist) {
+                    h3.textContent += ` (by ${file.realartist})`;  // Show real artist if provided
+                }
+
+                const audio = document.createElement("audio");  // Create an audio element
+                audio.controls = true;
+                audio.loop = true;
+                audio.controlsList = "nodownload";
+                audio.volume = 0.5;
+
+                // Create and configure the source element
+                const source = document.createElement("source");
+                source.type = "audio/mp3";
+                
+                source.id = file.title;
+                source.title = file.title;
+                audio.id = file.title;
+                audio.title = file.title;
+
+                file.element = audio;  // Store the audio element in the file object
+
+                // Set the correct source path for each file
+                if (file.subfolder === "added") {
+                    source.src = `/misc/snow/music/${file.subfolder}/${file.title}.mp3`;
+                } else {
+                    source.src = `/misc/snow/music/main/${index + 1}. ${file.title}.mp3`;
+                }
+
+                // Handle specific cases for special file names
+                switch (file.title) {
+                    case "Livin' In the Sunlight, Lovin' In the Moon Light":
+                        source.src = `/misc/snow/music/main/${index + 1}. Livin in the Sunlight Lovin in the Moon Light.mp3`;
+                        break;
+                    case "Intruder Alert (Metal)":
+                        source.src = `/misc/snow/music/main/${index + 1}. Intruder Alert Metal.mp3`;
+                        break;
+                    case "Lethal Company Ice Cream Song (Metal)":
+                        source.src = `/misc/snow/music/main/${index + 1}. Ice Cream Song Metal.mp3`;
+                        break;
+                    case "Lethal Company Ice Cream Song (With Lyrics)":
+                        source.src = `/misc/snow/music/main/${index + 1}. Ice Cream Song With Lyrics.mp3`;
+                        break;
+                    case "I Don't Care Anymore":
+                        source.src = `/misc/snow/music/main/${index + 1}. I Dont Care Anymore.mp3`;
+                        break;
+                    case "Pop It, Don't Drop It! (TF2 mix)":
+                        source.src = `/misc/snow/music/main/${index + 1}. Pop it Dont Drop it!.mp3`;
+                        break;
+                    case "Here I Come (Metal cover)":
+                        source.src = `/misc/snow/music/main/${index + 1}. Here I Come.mp3`;
+                        break;
+                    case "TF2 Soldier of Dance (Metal cover)":
+                        source.src = `/misc/snow/music/main/${index + 1}. Soldier of Dance Metal.mp3`;
+                        break;
+                    case "AR?A_M4TH":
+                        source.src = `/misc/snow/music/main/${index + 1}. CARA_M4TH.mp3`;
+                        break;
+                    case "Nightcore - Monster":
+                        source.src = `/misc/snow/music/main/${index + 1}. ${file.title} (${file.artist}).mp3`;
+                        break;
+                    case "Thief":
+                        source.src = `/misc/snow/music/main/${index + 1}. ${file.artist} - ${file.title}.mp3`;
+                        break;
+                    case "8-Bit Weapon - M.U.L.E":
+                        source.src = `/misc/snow/music/main/${index + 1}. ROBLOX Music - 8-Bit Weapon - MULE (Bitblaster Mix).mp3`;
+                        break;
+                    // Add more cases for other special titles as needed
+                    default:
+                        break;
+                }
+
+                audio.appendChild(source);  // Append source to audio element
+                div.appendChild(h3);  // Append h3 and audio to the div
+                div.appendChild(audio);
+                container.appendChild(div);  // Add div to the container
+
+                // Event listener for playing audio
+                audio.addEventListener('play', () => {
+                    let track = file.title;
+                    musicFiles.forEach((otherAudio) => {
+                        if (otherAudio.title !== file.title) {
+                            otherAudio.element.pause();  // Pause all other audio files
+                        }
+                    });
+                    updatePlayingText(track, file.artist, file.realartist);  // Update the playing text
+                    visualizeAudio(audio);  // Visualize the current audio
+                });
+
+                // Event listener for pausing audio
+                audio.addEventListener('pause', () => {
+                    if (isAllPaused(musicFiles)) {
+                        updatePlayingText("Nothing");  // Update playing text if everything is paused
+                    }
+                });
+            });
+
+            // Update playing text in the UI
+            function updatePlayingText(track, artist = "", realArtist = "") {
+                const topText = document.getElementById("playing-top");
+                const bottomText = document.getElementById("playing-bottom");
+                let text = track === "Nothing" ? "Playing: Nothing" : `Playing: ${track} by ${realArtist || artist}`;
+                topText.innerText = text;
+                bottomText.innerText = text;
+            }
+
+            // Check if all music files are paused
+            function isAllPaused(musicFiles) {
+                return musicFiles.every(file => file.element.paused);
+            }
+
+            // Visualize the audio using the canvas
+            function visualizeAudio(audio) {
+                const canvas = document.getElementById("visualizer");
+                const canvasBottom = document.getElementById("visualizerbottom");
+                const ctx = canvas.getContext("2d");
+                const ctxBottom = canvasBottom.getContext("2d");
+                const audioContext = new AudioContext();
+                const audioSource = audioContext.createMediaElementSource(audio);
+                const analyser = audioContext.createAnalyser();
+
+                audioSource.connect(analyser);
+                analyser.connect(audioContext.destination);
+                analyser.fftSize = 64;
+
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
+
+                function draw() {
+                    requestAnimationFrame(draw);
+                    analyser.getByteFrequencyData(dataArray);
+                    drawBars(ctx, dataArray, canvas);
+                    drawBars(ctxBottom, dataArray, canvasBottom);
+                }
+                draw();
+            }
+
+            // Draw bars on the canvas for audio visualization
+            function drawBars(ctx, dataArray, canvas) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                dataArray.forEach((value, index) => {
+                    const barHeight = value / 2;
+                    const x = index * 15;
+                    ctx.fillStyle = "rgba(0, 255, 0, 0.6)";
+                    ctx.fillRect(x, canvas.height - barHeight, 10, barHeight);
+                });
+            }
+        </script>
+	</body>
+</html>
