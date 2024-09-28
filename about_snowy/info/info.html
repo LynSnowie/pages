@@ -11,201 +11,78 @@
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
 		<link rel="stylesheet" href="/styles.css">
 		
-        <!-- <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/page_style/about_snowi.css"> -->
         <style>
-            /* about_snowy is diffrent, it new lol you idiot */
-            /* text, h1, h2, h3, h4, h5, h6, a {
-                text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-            } */
             body {
-                background-color: #481175;
-            }
-			h2 {
-				font-size: 30px;
-			}
-
-			h3 {
-				font-size: 25px;
-				color: black;
-				text-shadow: -0.8px 0 white, 0 0.5px white, 0.8px 0 white, 0 -0.5px white;
-				padding-bottom: 100px;
-			}
-
-			main h1, h2 {
-                text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-			}
-
-			section ul {
-				list-style-type: none;
-				padding: 0;
-			}
-
-			section ul li:before {
-				content: "- ";
-			}
-
-			section li {
-				font-family: 'Segoe UI';
-				font-size: 25px;
-				color: black;
-				text-shadow: -0.8px 0 white, 0 0.5px white, 0.8px 0 white, 0 -0.5px white;
-				position: relative;
-				z-index: 10000; /* Higher value for the header */
-			}
-        </style>
-
-        <!-- <link rel="stylesheet" href="https://lynsnowie.github.io/misc/css/page_style/about_snowi_misc.css"> -->
-		<style>
-			/* about_snowy_misc */
-			input {
-				width: 200px;
-				padding: 5px;
-				border-radius: 5px;
-				border: 1px solid #ccc;
-				padding: 5px;
-				border: 1px solid #000000;
-				box-shadow: inset 0 0 5px #000000;
-				border-radius: 5px;
-				outline: none;
-				margin-bottom: 10px;
-				padding: 10px;
-				border-radius: 5px;
-				border: 1px solid #ccc;
-			}
-
-			input:focus {
-				box-shadow: inset 0 0 5px #0078d7, 0 0 5px #0078d7;
-			}
-
-			button {
-				/* display: inline-block; */
-				padding: 10px 20px;
-				font: bold 15px Arial;
-				cursor: pointer;
-				/* text-align: center; */
-				/* text-decoration: none; */
-				outline: none;
-				color: black;
-				background-color: white;
-				border: none;
-				border-radius: 15px;
-				box-shadow: 0 9px #999;
-				border-top: 1px solid #F8F8FF;
-				border-right: 1px solid #3b3b3b;
-				border-bottom: 1px solid #3b3b3b;
-				border-left: 1px solid #F8F8FF;
-
-				padding:10px;
-				border-radius: 5px;
-				border: none;
-				background-color:#007BFF;
-				color:#fff;
-			}
-
-			button:hover {
-				transform: scale(1.07);
-			}
-
-			button:active {
-				background-color: #FEFEFA;
-				box-shadow: 0 5px #666;
-				transform: translateY(4px);
-			}
-
-		</style>
-
-		<style>
-			body {
-				margin: 0;
-				height: 100%;
-				background: linear-gradient(135deg, #00FF7F, #8A2BE2, #FFA500);
+                background: linear-gradient(to bottom, #0c0c0d, #2a2a2e);
 				background-size: 300% 300%;
-				animation: gradientAnimation 10s ease infinite;
-			}
+                color: #e6e6e6;
+                font-family: 'Roboto', sans-serif;
+            }
 
-			.audiolist {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-			}
-			.audiolist h3 {
-				color:white
-			}
-			.audiolistitem {
-				background-color: #2e104b;
-				border-radius: 20px;
-				border: #00FF7F;
-				border-style: solid;
-				border-color: #00FF7F;
-				flex: 5;
-				height: 300px;
-				width: 400px;
-			}
+            h1 {
+                color: #f0a1c1;
+                text-align: center;
+                font-family: 'Poppins', sans-serif;
+            }
 
-			audio {color: black;}
+            .header-image img {
+                width: 150px;
+                border-radius: 50%;
+                margin: 0 auto;
+                display: block;
+            }
 
-			@keyframes gradientAnimation {
-				0% {
-					background-position: 0% 50%;
-				}
-				50% {
-					background-position: 100% 50%;
-				}
-				100% {
-					background-position: 0% 50%;
-				}
-			}
-			
+            .tabs {
+                text-align: center;
+                margin: 20px 0;
+            }
 
-			/* Header container styling */
-			.header-container {
-				display: flex;
-				justify-content: space-between;
-				align-items: center;
-				padding: 20px;
-			}
+            .tab-button {
+                background-color: #454545;
+                color: #e6e6e6;
+                border: none;
+                padding: 10px 20px;
+                margin: 0 10px;
+                font-size: 1.2em;
+                cursor: pointer;
+                border-radius: 20px;
+            }
 
-			/* Currently-playing section */
-			.currently-playing {
-				position: relative;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				background-color: #333;
-				visibility: shown;
-				height: 80px;
-				width: 480px;
-				border-bottom-left-radius: 20px;
-				border-bottom-right-radius: 20px;
-				margin: 0 auto; /* Center horizontally */
-				top: 0px; /* Space it under the header */
-			}
+            .tab-button:hover {
+                background-color: #666;
+            }
 
-			.currently-playing-bottom {
-				position: 100%;
-				position: relative;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				background-color: #333;
-				height: 80px;
-				width: 480px;
-				border-top-left-radius: 20px;
-				border-top-right-radius: 20px;
-				margin: 0 auto; /* Center horizontally */
-				top: 0px; /* Space it under the header */
-			}
+            .lore-content {
+                padding: 20px;
+                border: 2px solid #7ac8f3;
+                border-radius: 15px;
+                /* max-width: 800px; */
+                margin: 0 auto;
+                background-color: #1b1b1e;
+            }
 
-			/* Canvas positioning */
-			canvas {
-				width: 300px;
-				height: 50px;
-				padding-bottom: 5px;
-			}
-			.canbottom {
-				position: bottom;
-				top: -1000px;
-			}
+            .lore-content.hidden {
+                display: none;
+            }
+
+            
+            button {
+                background-color: #444;
+                color: white;
+                border: none;
+                padding: 10px 20px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+    
+            button:hover {
+                background-color: #666;
+            }
+    
+            /* Smooth volume transition */
+            audio {
+                transition: volume 1s ease;
+            }
 		</style>
 	</head>
 	<body>
@@ -229,122 +106,90 @@
 		</header>
 
 		<main>
-            <section class="intro1">
-                <!-- Currently playing section centered -->
-                <div class="currently-playing">
-					<h4 id="playing-top" style="color: white;">Playing: Nothing</h4>
-                    <canvas id="visualizer"></canvas>
-                </div>
-            </section>
 			<section class="intro">
-				<h2>I'm Snowy. You are able find me on my offical accounts:</h2>
-				<ul class="list" style="padding-bottom: 50px;">
-					<li class="list"><a id="tiktok redirect">TikTok: your_fuzzy_snowi</a></li>
-					<li class="list">Discord: lynsnowie</li>
-					<li class="list"><a id="youtube redirect">Youtube: fuzzy_snowie</a></li>
-					<li class="list"><a id="patreon redirect">Pateron: lynsnowie</a></li>
-					<li class="list"><a id="pinterest redirect">Pinterest: @Fluffy_Snowy
-					<li class="list"><a href="mailto:lynsnowie@outlook.com">Email: lynsnowie@outlook.com</a></li>
-				</ul>
+                <header style="background-color: transparent; padding: 50px;">
+                    <div class="header-image">
+                      <img src="https://steamuserimages-a.akamaihd.net/ugc/2459617657719151982/34C93A7244B8C5EE9FB5720A54ABB54F85DC9462/?imw=1559&imh=2048&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" alt="Snowy Image">
+                    </div>
+                    <h1 style="padding: 50px">Snowy's Lore</h1>
+                </header>
+                <!-- <audio id="bgMusic" loop>
+                    <source src="lore-asset/short-bg-music.wav" type="audio/mpeg" id="shortAudio">
+                    <source src="lore-asset/long-bg-music.wav" type="audio/mpeg" id="longAudio">
+                </audio>  -->
+                <section id="lore">
+                    <!-- <div class="tabs">
+                        <button id="shortLoreBtn" class="tab-button">Short Lore</button>
+                        <button id="longLoreBtn" class="tab-button">Long Lore</button>
+                    </div> -->
+                    <div id="long-lore" class="lore-content shown" style="width: 1500px">
+                        <h2>Snowy's Lore</h2>
+                        <!-- <p>Snowy's origins are wrapped in mystery, as elusive as the stars themselves. While it's clear they have been part of the Furry Fandom for some time, the exact moment Snowy embraced it remains unknown, even to them. This secret adds to the enigma that surrounds their life. What everyone does know is that Snowy has always been a bundle of energy, shaped by ADHD, which became a significant part of their personality by 2016. Their fluffy, cute appearance has been a constant for many years, though no one can pinpoint exactly when this cuteness first emerged.</p>
+        
+                        <p>Snowy's pronouns are as flexible as their personality. Although not female, Snowy is comfortable with any pronouns, whether it's she/her, he/him, or they/them, reflecting their non-binary identity. By 2024, they embraced being a femboy, comfortable in their own skin, but respectful of everyone else's preferences—including Cone's, their loving partner, whose pronouns Snowy isn't always sure of.</p>
+        
+                        <p>The relationship between Snowy and Cone, affectionately dubbed “Snowcone” by their friends, blossomed in 2024. Despite Snowy's deep involvement in the Furry Fandom, Cone has never been interested in joining it, and Snowy respects that boundary, valuing their differences. Their bond is built on mutual understanding, trust, and unwavering support. Snowy keeps their age a secret from everyone except Cone, maintaining a layer of privacy even within their closest connections.</p>
+        
+                        <p>That same year, however, a playful mistake almost cost them everything. In a lighthearted, "drunken" moment, Snowy accidentally sent a message to Lynn (nickname Lolie) saying, "I want you~". It was meant as a joke, but Lynn took it seriously and responded with flirtatious messages. The misunderstanding spiraled out of control when Lynn falsely accused Snowy of cheating on Cone, leaving Snowy emotionally scarred and causing trust issues to deepen. Snowy no longer wants any contact with Lynn after the false allegations, feeling a mix of betrayal and anger.</p>
+        
+                        <p>Over the years, Snowy has dealt with more than just external challenges. They struggle with depression (since 2020), anger issues, and trust issues that worsened after the incident with Lynn. Despite these internal battles, Snowy maintains a playful, chaotic side, balancing their love of harmless mischief with a desire for solitude. By 2021, they became more introverted, seeking comfort in quiet spaces, away from the overwhelming noise of crowded environments, both in real life and in games. Though they enjoy multiplayer games, Snowy prefers to stay out of the chaos, finding peace in avoiding crowds.</p>
+        
+                        <p>Snowy's asexual and aromantic (Aroace) identity remains another enigma, as even they aren't certain when these feelings began to take root. Still, their aroace identity defines their sense of love—platonic and emotional, rather than romantic or physical.</p>
+        
+                        <p>Though Snowy occasionally dabbles in NSFW activities, like playing certain games, it's not something they engage with too often. They despise harmful ideologies, especially those of anti-furs and zoophiles, drawing firm boundaries around their moral compass. Snowy's personal experiences have also made them wary of oversharing, choosing to keep their private life—including the time they once fired a blank gun in the UK—under wraps, unless they're with someone they trust completely, like Cone.</p>
+        
+                        <p>Through it all, Snowy's sense of humor, playful chaos, and love for their close ones keeps them going. They thrive on the balance between harmless silliness and respectful boundaries, finding joy in their fursonas and the quiet moments they treasure. With Cone by their side and the support of trusted friends, Snowy navigates the twists and turns of life, always with a fluffy, chaotic smile.</p> -->
+                        
+                        <p style="padding: 20px">Snowy’s origins are wrapped in mystery, as elusive as the stars themselves. Though it's clear they’ve been part of the Furry Fandom for some time, not even Snowy knows when they first became involved. This secret adds to the air of intrigue that surrounds their life, especially with their preference to go by names like "Snow," "Snowy," or "Lyn Snow," avoiding their birth name altogether.</p>
 
-				<h2 style="font-size: 30px">For anything for friends, you can find it <a href="https://docs.google.com/document/d/1n3iJVh8zrUses7ETWgP0Nq6SoVOVVoKnweGuCqFFGyA/edit?usp=sharing">here (Permission has to be requested.)</a></h2>
-				<h2 style="font-size: 30px">Anything I do for fun can be found <a href="for_fun">here</a></h2>
+                        <p style="padding: 20px">From an early age, Snowy’s life has been shaped by ADHD, which became a defining part of their personality by 2016. They’re a bundle of energy, known for being fluffy and cute, though no one knows when this cuteness emerged—it just always was. Snowy is introverted and often prefers to be alone, both in person and in games, though they don't like feeling completely isolated—just away from overwhelming groups.</p>
 
-				
-				<h2 style="font-size: 30px; padding-top: 40px">Here is some information about me:</h2>
-				<ul>
-					<li>I've got really bad trust issues. (I can't trust anyone anymore because of false allegations of me cheating.)</li>
-					<li>My age is [REDACTED]</li>
-					<li>My birth day is February 7th</li>
-					<li>I am in the Furry Fandom again.</li> <!-- <li>I am in the furry fandom. Don't pay attention to the antifurs.</li> and I am an Ex-Fur as of 26/07/2024 (DD/MM/YYYY). The fandom was fun. -->
-					<li>I identify as silly and chaotic 😸👍 (My gender is male)</li>
-					<li>I am <a id="nonbin redirect">NonBinary</a> and <a id="aroace redirect">Aroace</a> (Any pronouns, doesn't bother me!)</li>
-					<li>I have <a id="adhd redirect">ADHD</a> and often feel shy talking to people</li>
-					<li>I sometimes mess about in Roblox Studio</li>
-					<li>I am interessed in Computers/Technology</li>
-					<li>I love playing <a id="billards redirect">Billiards Pool</a>, <a id="sims 4 redirect">The Sims 4</a>, <a id="tf2 redirect">Team Fortress 2</a>, <a id="he redirect">Hardware Engineers<a>, and <a id="pcbs redirect">PC Building Simulator</a>, among others as well.</li>
-					<li>My favorite songs are “The Setup” and “Don’t Come Close”, among others aswell</li>
-					<li>I mostly <strong>do not</strong> engage in NSFW activities. Sometimes I do.</li>
-					<li>I love cats! 😺</li>
-					<li>I have anger issues.</li>
-					<li>I have depression.</li>
-					<li>I am in a relationship from what I am aware (I call him my bf or anything else. not bothered)</li>
-					<!-- <li>I am in a relationship with Issac, otherwise known as cone (Note because I am Aroace doesn't mean I can have someone to keep me company.)</li> -->
-					<li>I am a femboy (In a femboy phase) because of a bet.</li>
-				</ul>
+                        <p style="padding: 20px">Despite their fluffy, adorable appearance, Snowy hides much more beneath the surface. Most of Snowy’s injuries and scars—including self-inflicted ones—are concealed by their fluff. Depending on the direction the fluff is stroked, these hidden wounds might become visible for a moment, revealing a deeper side of Snowy’s struggle with self-harm. However, one injury remains visible at all times: the first bite from Cone, a mark that Snowy never tries to hide. This bite, given out of love, zombified Snowy, and they don’t complain about it at all—in fact, they embrace it.</p>
 
-				<h2 style="font-size: 30px; padding-top: 50px">My nicknames:</h2>
-				<ul>
-					<li>Snowie - Fine for all</li>
-					<li>Snowy - Fine for all</li>
-					<li>Snows - Fine for Friends and trusted</strong></li>
-					<li>Snow - Fine for Friends</li>
-				</ul>
+                        <p style="padding: 20px">By 2021, Snowy became more reclusive, struggling with depression and internal battles they'd rather not fully share. They keep much of their pain inside, believing that no one truly cares about their struggles—until their emotions, particularly anger, bubble to the surface. "Nobody cares about your mental health until it turns into anger. Then everyone sees you as the problem," they often say.</p>
 
-				<h2 style="font-size: 30px; padding-top: 50px">My Fursonas:</h2>
-				<ul>
-					<li>Pixel Fur (previously Rainbowsnout): Female. Cat. Tuxedo</li>
-					<li>Terabyte: Female. Protogen</li>
-					<li>Perabyte: Male. Protogen</li>
-					<li>SnowiBlossom: Female. Fox. Arctic Breed</li>
-				</ul>
-				
-				<h2 style="font-size: 30px; padding-top: 50px">Additional Info:</h2>
-				<ul>
-					<li>Based in the UK</li>
-					<!-- <li><a onclick='redirect("https://en.wikifur.com/wiki/Anti-furries")'>Antifur</a> and <a onclick='redirect("https://en.wikipedia.org/wiki/Zoophilia")'>Zoophile</a> hater 😾</li> -->
-					<li><a href="https://en.wikifur.com/wiki/Anti-furries">Antifur</a> and <a href="https://en.wikipedia.org/wiki/Zoophilia">Zoophile</a> hater 😾</li>
-					<li>Started playing Team Fortress 2 in 2016 on another account. Launched TF2 at exactly Sunday, January 3, 2016, 13:41:20 GMT</li>
-					<li>In Team Fortress 2. My favourite classes are: Pyro and Engineer</li>
-				</ul>
-				
-				<h2 style="font-size: 30px; padding-top: 50px">My Goals:</h2>
-				<ul>
-					<li>Find and take photos with a fursuiter</li>
-					<li>Go to a furry convention</li>
-				</ul>
+                        <p style="padding: 20px">Snowy hides their true feelings, lying about being "okay" to those they don’t trust as much as Cone, their partner. Strangely enough, they even sometimes lie to the people they do trust—Cone, friends like Fox and Derp—even if they don’t fully understand why. They may say they’re fine, but inside, the struggles are often overwhelming. For friends and acquaintances, Snowy can be convincing with a forced smile, but Cone always sees through it.</p>
 
-				<h2 style="font-size: 30px; padding-top: 50px">My completed goals:</h2>
-				<h3>None yet.</h3>
+                        <p style="padding: 20px">In fact, Snowy is terrified of losing anyone close to them, especially Cone, and these fears fuel Snowy's quiet, withdrawn moments during depressive or suicidal episodes. During these episodes, Snowy may try to isolate themselves completely, retreating to quiet places. However, sometimes they are unable to hide, and those around them witness their emotional breakdowns. In those moments, the vulnerability Snowy usually tries to keep hidden becomes painfully clear.</p>
 
-				<h2>Random (not planned) completed goals:</h2>
-				<ul>
-					<li>Shooting a firearm in the UK. Forgot the day, month and year I've done that</li>
-				</ul>
-				
-				<h2 style="font-size: 30px; padding-top: 100px">Misc:</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">What addons/custom things I use for TF2?</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">Hud: Eve Hud</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">Color Schene: 2008</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">You can find my custom folder on <a id="tf2 google drive">google drive</a>.</h2> <!-- https://drive.google.com/drive/folders/1E2Ok-QroC-TVK35oLRF44J4QhtnxBSgO?usp=drive_link -->
+                        <p style="padding: 20px">Snowy's coping mechanisms are complex, often tied to their mood. They have a deep connection to music and relate to certain songs depending on how they're feeling. When sad or overwhelmed, Snowy might play songs that match their mood, like "I'm Done" by Robert Grace during suicidal episodes. Certain lines in the song speak to their pain, and rather than shy away from it, Snowy often embraces it, finding a strange comfort in feeling everything intensely. However, they may also relate to emotionally charged songs even when they’re not in that particular state of mind, as if some emotions are always simmering beneath the surface.</p>
 
-				<h2 style="font-size: 30px; padding-top: 100px;">What music do I listen to?</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">You can find my music folder on <a id="music google drive">google drive</a> or <a href="/pages/about_snowy/music">this page</a></h2> <!-- https://drive.google.com/drive/folders/11bAlOS_Vj__dashdD2hVp2pKe3r83ZcK?usp=sharing -->
+                        <p style="padding: 20px">2024 marked a pivotal year in Snowy’s life. A false accusation from Lynn (Lolie) of cheating on Cone shook Snowy's trust in people and worsened their mental health struggles. Since then, suicidal thoughts have haunted them, though they refuse to talk about it openly, as doing so "brings it back, if you understand." Snowy also finds peace through what they consider their "therapy," which can range from spending time alone, away from everyone, to finding comfort in Cone’s love. They alternate between these two forms of peace depending on their mood and emotional state.</p>
 
-				<h2 style="font-size: 30px; padding-top: 100px;">How and where can I find what you made?</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">Most of the silliness stuff I make is only for friends.</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">But the silliness stuff I made that I am fine with sharing to anyone can be found by <a id="public silly">google drive</a> <!-- https://drive.google.com/drive/folders/1LeMoMT7WP68fFU1iRL_AZjXU-a09jjBI?usp=sharing -->
+                        <p style="padding: 20px">Snowy’s relationship with pain is complicated. Whether it’s self-inflicted harm or something as simple as bites from Cone—whether out of love or otherwise—Snowy often finds these moments of pain grounding, helping them feel something real when emotions become too overwhelming.</p>
 
-				<h2 style="font-size: 30px; padding-top: 100px;">Do I have friends?</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">If you are referring to social media friends. There is 19+.</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">If you are referring to IRL friends. I do not have many.</h2>
+                        <p style="padding: 20px">Snowy’s love for Cone blossomed in 2024, marking the beginning of a beautiful relationship. Though shy and unable to openly flirt with Cone, their relationship is filled with deep affection. Sometimes they’ll nervously say things like, "You own me :3" or "I give you my full permission to do whatever you want to me," though these moments are rare due to Snowy's shy nature. Cone’s physical gestures—like pats, boops, and hugs—bring Snowy comfort and grounding, especially during moments of emotional turmoil.</p>
 
-				<h2 style="font-size: 30px; padding-top: 100px;">Does anyone really care about info about me?</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">No.</h2>
+                        <p style="padding: 20px">Despite these hardships, Snowy’s silly and chaotic side still shines through. Known for making goofy statements like, "If I eat a glow stick, will I glow? :3," they love foxes (mysteriously), snow, and their giant Calico cat plushie, which they cuddle while sleeping. Snowy finds joy in creating chaos but always respects boundaries, especially Cone's.</p>
 
-				<h2 style="font-size: 30px; padding-top: 100px;">What is a furry?</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">A furry is someone who appreciates, dresses up as, draws, or creates an OC of themselves as an anthropomorphic animal or creature.</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">Furries respect animals and do not wish to be or act like animals.</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">We do not harm animals. Those who do, known as zoos, are not welcome in the community.</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">It’s not a weird thing either. Many people assume furries do strange things in their suits, which is not true. Many furries are minors and don’t engage in such activities.</h2>
-				<h2 style="font-size: 25px; padding-top: 5px;">Furries don’t hunt animals for fur. We use faux fur, which is synthetic. (Faux fur is fake fur)</h2>
-			</section>
-            <section class="intro1">
-                <!-- Currently playing section centered -->
-                <div class="currently-playing-bottom">
-                    <canvas id="visualizerbottom" class=".canbottom"></canvas>
-					<h4 id="playing-bottom" style="color: white;">Playing: Nothing</h4>
-                </div>
+                        <p style="padding: 20px">Snowy has also carried an old habit of meowing, often catching themselves doing it unconsciously. Though their friends find it endearing, it’s a small reminder of their playful yet complex nature.</p>
+
+                        <p style="padding: 20px">Though shy about flirting, Snowy expresses their love for Cone in other ways. They frequently tell Cone, "Your love is more than money could ever buy," or "You mean the world to me <3." Snowy may not always find the right words to express how much Cone means to them, but their actions speak volumes.</p>
+
+                        <p style="padding: 20px">Though Snowy struggles with depression, ADHD, and anger issues, they continue to find their way in the world with Cone by their side, believing that Cone's love and support give them the strength to face whatever comes next.</p>
+                    </div>
+                </section>         
+                <script>
+
+                    document.getElementById("long-lore").classList.add("shown");
+                    document.getElementById("long-lore").classList.remove("hidden");
+
+                    // const shortLoreBtn = document.getElementById('shortLoreBtn');
+                    // const longLoreBtn = document.getElementById('longLoreBtn');
+                    // const bg = new Audio('./lore-asset/Ready_Or_Not.mpeg');
+        
+                    // window.onload = function() {
+                    //     if (bg.paused == true) {
+                    //         bg.volume = 0.5;
+                    //         bg.play();
+                    //         setTimeout(() => {
+                    //             document.getElementById("long-lore").classList.add("shown");
+                    //             document.getElementById("long-lore").classList.remove("hidden");
+                    //         }, 13170);
+                    //     }
+                    // };
+                </script>
+
             </section>
 		</main>
 		
@@ -367,11 +212,9 @@
 			</div>
 		</footer>
 
-		<script src="/js/pages/snowy-bg.js"></script>
 		
 		<script src="/js/oneko.js"></script>
-		<script src="/js/pages/snowy.js"></script>
-		<script src="/js/pages/snowy-subpages.js"></script>
 		<script src="/js/pages/home.js"></script>	
+        <script src="/js/pages/snowy-subpages.js"></script>
 	</body>
 </html>
