@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="About Snowy, Music">
+        <meta name="author" content="Lyn Snow">
+		<title>Snowy's Site - About Snowy, Music</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="language" content="English">
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
+		<link rel="stylesheet" href="/styles.css">
+
+		<style>
+			body {
+				margin: 0;
+				height: 100%;
+				background: linear-gradient(135deg, #00FF7F, #8A2BE2, #FFA500);
+				background-size: 300% 300%;
+				animation: gradientAnimation 10s ease infinite;
+			}
+
+            .audiolist {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+            }
+			.audiolist h3 {
+				color:white
+			}
+            .audiolistitem {
+                background-color: #2e104b;
+				border-radius: 20px;
+				border: #00FF7F;
+  				border-style: solid;
+				border-color: #00FF7F;
+                flex: 5;
+                height: 300px;
+                width: 400px;
+            }
+
+			audio {color: black;}
+
+			@keyframes gradientAnimation {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+			
+
+			/* Header container styling */
+			.header-container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 20px;
+			}
+
+			/* Currently-playing section */
+			.currently-playing {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background-color: #333;
+				visibility: shown;
+				height: 80px;
+				width: 480px;
+				border-bottom-left-radius: 20px;
+				border-bottom-right-radius: 20px;
+				margin: 0 auto; /* Center horizontally */
+				top: 0px; /* Space it under the header */
+			}
+
+			.currently-playing-bottom {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background-color: #333;
+				visibility: shown;
+				height: 80px;
+				width: 480px;
+				border-top-left-radius: 20px;
+				border-top-right-radius: 20px;
+				margin: 0 auto; /* Center horizontally */
+				top: 0px; /* Space it under the header */
+			}
+
+			/* Canvas positioning */
+			canvas {
+				width: 300px;
+				height: 50px;
+				padding-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="header-container">
+				<h1><span class="highlight">Kitsune</span> Hub</h1>
+				<nav>
+					<ul>
+						<ul id="header-nav"></ul>
+					</ul>
+				</nav>
+			</div>
+			<div class="header-container">
+				<h1><span class="highlight"></span></h1>
+				<nav>
+					<ul>
+						<ul id="subheader-nav"></ul>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+            <section class="intro1">
+                <!-- Currently playing section centered -->
+                <div class="currently-playing" id="currently-playing" >
+					<h4 id="playing-top" style="color: white;">Playing: Nothing</h4>
+                    <canvas id="visualizer"></canvas>
+                </div>
+            </section>
+			<section class="intro">
+				<h2 style="padding-bottom: 50px; color: black">Snowy's Music Playlist</h2>
+                <h1 style="font-size: 50px; color: black; padding-bottom: 100px;">TW: Some of the songs are loud. Lower the volume of them before listening to them to not blow out your eardrums.</h1>
+				<!-- <p>Meow <span class="highlight">meow.</span></p> -->
+				<div class="audiolist" id="audiolist"></div>
+			</section>
+            <section class="intro1">
+                <!-- Currently playing section centered -->
+                <div class="currently-playing-bottom" id="currently-playing-bottom" >
+                    <canvas id="visualizerbottom"></canvas>
+					<h4 id="playing-bottom" style="color: white;">Playing: Nothing</h4>
+                </div>
+            </section>
+		</main>
+		
+		<footer>
+			<div class="header-container">
+				<h1><span class="highlight"></span></h1>
+				<nav>
+					<ul>
+						<ul id="subfooter-nav"></ul>
+					</ul>
+				</nav>
+			</div>
+			<div class="footer-container">
+				<h1><span class="highlight">Kitsune</span> Hub</h1>
+				<nav>
+					<ul>
+						<ul id="footer-nav"></ul>
+					</ul>
+				</nav>
+			</div>
+		</footer>
+		<script src="/js/pages/home.js"></script>
+        <script src="/js/pages/snowy-subpages.js"></script>
+
+		<script>
+			const musicFiles = [
+                // Electronic, Futuristic, Upbeat
+                { title: "Protogen Evolution", artist: "Bonnie37 Electro", url: "about:blank", subfolder: "added", hasinstrumental: false, },
+                { title: "Antidote", artist: "Swedish House Mafia", url: "about:blank", subfolder: "added", hasinstrumental: false, },
+                { title: "Alone", artist: "Marshmello", url: "about:blank", subfolder: "added", hasinstrumental: false, },
+                { title: "Alone", artist: "Alan Walker", url: "about:blank", subfolder: "added", hasinstrumental: false, },
+                { title: "Cloud 9", artist: "Tobu", url: "about:blank", subfolder: "added", hasinstrumental: false, },
+                { title: "Sunburst", artist: "Tobu", url: "about:blank", subfolder: "added", hasinstrumental: false, },
+                { title: "On & On", artist: "Cartoon, Jéja (feat. Daniel Levi)", url: "about:blank", subfolder: "added", hasinstrumental: false, },
+                { title: "Unity", artist: "TheFatRat", url: "about:blank", subfolder: "added", hasinstrumental: false, },
+                { title: "Why We Lose", artist: "Cartoon, Jéja (Feat. Coleman Trapp)", url: "about:blank", subfolder: "added", hasinstrumental: false, },
+                { title: "INVERSE REALITY", artist: "ZØMB", url: "about:blank", subfolder: "added", hasinstrumental: false, },
+            ];
+
+            const container = document.getElementById("audiolist"); // Get the container element where audio elements will be added
+
+            musicFiles.forEach((file, index) => { // Loop through each music file and create HTML elements for them
+                // console.log(index);
+                const div = document.createElement("div");  // Div to hold each audio item
+                div.classList.add("audiolistitem");
+                const h3 = document.createElement("h3");  // Title and artist text
+                h3.textContent = `${file.title} \nby ${file.artist}`;
+                if (file.realartist) {
+                    h3.textContent += ` (by ${file.realartist})`;  // Show real artist if provided
+                }
+
+                const audio = document.createElement("audio");  // Create an audio element
+                audio.controls = true;
+                audio.loop = true;
+                audio.controlsList = "nodownload";
+                audio.volume = 0.5;
+
+                const source = document.createElement("source"); // Create and configure the source element
+                source.type = "audio/mp3";
+                
+                source.id = file.title;
+                source.title = file.title;
+                source.artist = file.artist;
+                source.realartist = file.realartist;
+                audio.id = file.title;
+                audio.title = file.title;
+                audio.artist = file.artist;
+                audio.realartist = file.realartist;
+
+                file.element = audio;  // Store the audio element in the file object
+
+                source.src = `/misc/snow/music/${file.subfolder}/${file.title}.mp3`;  // Set the correct source path for each file
+
+                switch (file.title) {  // Handle specific cases for special file names
+                    case "I Forgot That You Exist ¯\\_(ツ)_/¯":
+                        source.src = `/misc/snow/music/added/I Forgot That You Exist.mp3`;
+                        break;
+                    case "Kani Kani (Fish)":
+                        console.log("KANI KANI! X3");
+                        source.src = `/misc/snow/music/added/Kani Kani (Fish) Long.mp3`;
+                        source.kanilong = "";
+                        break;
+
+                    case "California Girls":
+                        source.src = `/misc/snow/music/added/California Gurls.mp3`
+                        break;
+
+                    case "Team Fortress 2 - Main Theme (continued by AI)":
+                        source.src = `/misc/snow/music/added/Team Fortress 2 Main Theme continued by AI.mp3`
+                        const aiaudio = document.createElement("audio");  // Create an audio element;
+                        const aisource = document.createElement("source"); // Create and configure the source element
+                        
+                        aiaudio.controls = true;
+                        aiaudio.loop = true;
+                        aiaudio.controlsList = "nodownload";
+                        aiaudio.volume = 0.5;
+
+                        aisource.type = "audio/mp3";
+                        
+                        aiaudio.id = file.title;
+                        aiaudio.title = file.title;
+                        aiaudio.instrumental = "true";
+                        aisource.id = file.title;
+                        aisource.title = file.title;
+                        aisource.instrumental = "true";
+
+                        aisource.src = `/misc/snow/music/added/Team Fortress 2 Main Theme.mp3`
+
+                        aiaudio.appendChild(aisource);
+                        div.appendChild(aiaudio);
+                        break;
+                    
+                    case "Icecream Song Delivery Music":
+                        source.src = "/misc/snow/music/added/Icecream Song Delivery Music.mp3"
+                        break;
+
+                    case "Delivery Music":
+                        source.src = "/misc/snow/music/added/Delivery Music Remix.mp3"
+                        break;
+                    default:
+                        break;
+                }
+
+                switch (file.artist) {
+                    case "Marshmello":
+                        if (file.title == "Alone") {
+                            source.src = "/misc/snow/music/added/Alone (Marshmello).mp3"
+                        }
+                        break;
+                }
+
+                audio.appendChild(source);  // Append source to audio element
+                div.appendChild(h3);  // Append h3 and audio to the div
+                div.appendChild(audio);
+                switch (file.title) {
+                    case "Icecream Song/Delivery Music": // Delivery Music
+                        source.src = "/misc/snow/music/added/Delivery Music Remix.mp3"
+                        const audioRemake = document.createElement("audio");  // Create an audio element;
+                        const sourceRemake = document.createElement("source"); // Create and configure the source element
+                        
+                        audioRemake.controls = true;
+                        audioRemake.loop = true;
+                        audioRemake.controlsList = "nodownload";
+                        audioRemake.volume = 0.5;
+
+                        sourceRemake.type = "audio/mp3";
+                        
+                        audioRemake.id = file.title;
+                        audioRemake.title = file.title;
+                        sourceRemake.id = file.title;
+                        sourceRemake.title = file.title;
+
+                        sourceRemake.src = "/misc/snow/music/added/Delivery Music Remake.mp3"
+
+                        audioRemake.appendChild(sourceRemake);
+                        div.appendChild(audioRemake);
+                        break;
+                }
+
+            //     if (file.hasinstrumental) {
+            //         const instrumentalaudio = document.createElement("audio");
+            //         const instrumentalsource = document.createElement("source");
+            //         instrumentalaudio.controls = true;
+            //         instrumentalaudio.loop = true;
+            //         instrumentalaudio.controlsList = "nodownload";
+            //         instrumentalaudio.volume = 0.5;
+            //         instrumentalsource.type = "audio/mp3";
+            //         instrumentalaudio.id = file.title;
+            //         instrumentalaudio.title = file.title;
+            //         instrumentalaudio.instrumental = "true";  // Mark as instrumental
+            //         instrumentalsource.instrumental = "true";  // Mark as instrumental
+            //         instrumentalsource.src = `/misc/snow/music/added/${file.title} (Instrumental).mp3`;
+            //         instrumentalaudio.appendChild(instrumentalsource);
+            //         div.appendChild(instrumentalaudio);
+            //     }
+
+                container.appendChild(div);  // Add div to the container
+            });
+
+            
+            let allaudio = document.querySelectorAll("audio");
+
+            allaudio.forEach(element => {
+                element.addEventListener('play', () => {
+                    console.log("An audio played");
+
+                    // Pause all other audio with the same title but different element
+                    allaudio.forEach((otherAudio) => {
+                        if (otherAudio.title === element.title && otherAudio !== element) {
+                            if (!otherAudio.paused) {
+                                console.log(`Pausing ${otherAudio.title} (${otherAudio.instrumental ? 'Instrumental' : 'Original'})`);
+                                otherAudio.pause();
+                            }
+                        }
+                    });
+
+                    // Update text to show which track is playing
+                    updatePlayingText(element.title, element.artist, element.realartist);  
+                    visualizeAudio(element);  // Start visualizing the audio
+                });
+
+                element.addEventListener('pause', () => {
+                    // Check if any audio is still playing
+                    if (isAnyPlaying(allaudio)) {
+                        console.log("Some audio is still playing.");
+                    } else {
+                        // If all are paused, show "Nothing" as playing
+                        updatePlayingText("Nothing");
+                    }
+                    console.log("An audio paused");
+                });
+            });
+
+            // Function to check if any audio is currently playing
+            function isAnyPlaying(audioList) {
+                return [...audioList].some(audio => !audio.paused);
+            }
+
+            function updatePlayingText(track, artist = "", realArtist = "") {
+                const topText = document.getElementById("playing-top");
+                const bottomText = document.getElementById("playing-bottom");
+                let text = track === "Nothing" ? "Playing: Nothing" : `Playing: ${track} by ${realArtist || artist}`;
+                topText.innerText = text;
+                bottomText.innerText = text;
+            }
+
+
+            function updatePlayingText(track, artist = "", realArtist = "") { // Update playing text in the UI
+                const topText = document.getElementById("playing-top");
+                const bottomText = document.getElementById("playing-bottom");
+                let text = track === "Nothing" ? "Playing: Nothing" : `Playing: ${track} by ${realArtist || artist}`;
+                topText.innerText = text;
+                bottomText.innerText = text;
+            }
+
+            function isAllPaused(musicFiles) { // Check if all music files are paused
+                // return musicFiles.every(file => file.element.paused);
+                return musicFiles.entries(file => file.element.paused);
+            }
+
+            function visualizeAudio(audio) { // Visualize the audio using the canvas
+                const canvas = document.getElementById("visualizer");
+                const canvasBottom = document.getElementById("visualizerbottom");
+                const ctx = canvas.getContext("2d");
+                const ctxBottom = canvasBottom.getContext("2d");
+                const audioContext = new AudioContext();
+                const audioSource = audioContext.createMediaElementSource(audio);
+                const analyser = audioContext.createAnalyser();
+
+                audioSource.connect(analyser);
+                analyser.connect(audioContext.destination);
+                analyser.fftSize = 64;
+
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
+
+                function draw() {
+                    requestAnimationFrame(draw);
+                    analyser.getByteFrequencyData(dataArray);
+                    drawBars(ctx, dataArray, canvas);
+                    drawBars(ctxBottom, dataArray, canvasBottom);
+                }
+                draw();
+            }
+
+            function drawBars(ctx, dataArray, canvas) { // Draw bars on the canvas for audio visualization
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                dataArray.forEach((value, index) => {
+                    const barHeight = value / 2;
+                    const x = index * 15;
+                    ctx.fillStyle = "rgba(0, 255, 0, 0.6)";
+                    ctx.fillRect(x, canvas.height - barHeight, 10, barHeight);
+                });
+            }
+		</script>
+	</body>
+</html>
